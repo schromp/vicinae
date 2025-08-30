@@ -219,6 +219,7 @@ set(SRCS
 
 
 	include/clipboard-history-view.hpp
+	include/tray-view.hpp
 
 	src/ui/omni-painter/omni-painter.hpp
 	src/ui/omni-painter/omni-painter.cpp
@@ -397,6 +398,7 @@ set(SRCS
 	src/ui/omni-tree/omni-tree.hpp
 
 	src/extensions/clipboard/clipboard-history-command.cpp
+	src/extensions/tray/tray-command.hpp
 
 	src/extensions/vicinae/refresh-apps-command.hpp
 	src/extensions/vicinae/refresh-apps-command.cpp

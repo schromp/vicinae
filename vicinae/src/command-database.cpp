@@ -10,6 +10,7 @@
 #include "extensions/wm/wm-extension.hpp"
 #include "extensions/vicinae/vicinae-extension.hpp"
 #include "extensions/system/system-extension.hpp"
+#include "extensions/tray/tray-extension.hpp"
 #include <memory>
 
 const AbstractCmd *CommandDatabase::findCommand(const QString &id) {
@@ -48,6 +49,7 @@ CommandDatabase::CommandDatabase() {
   registerRepository<ThemeExtension>();
   registerRepository<FontExtension>();
   registerRepository<DeveloperExtension>();
+  registerRepository<TrayExtension>();
 
 #ifdef Q_OS_UNIX
   registerRepository<SystemExtension>();

@@ -8,10 +8,10 @@
 
 class TrayService : public QObject {
   Q_OBJECT
-private:
+
+public:
   StatusNotifierWatcher *m_watcher;
   StatusNotifierHost *m_host;
 
-public:
   TrayService();
 };
