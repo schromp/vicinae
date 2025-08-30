@@ -15,6 +15,7 @@
 #include "services/raycast/raycast-store.hpp"
 #include "services/root-item-manager/root-item-manager.hpp"
 #include "services/toast/toast-service.hpp"
+#include "services/tray/tray.hpp"
 #include "services/window-manager/window-manager.hpp"
 
 RootItemManager *ServiceRegistry::rootItemManager() const { return m_rootItemManager.get(); }
@@ -34,6 +35,7 @@ FileService *ServiceRegistry::fileService() const { return m_fileService.get(); 
 RaycastStoreService *ServiceRegistry::raycastStore() const { return m_raycastStoreService.get(); }
 ExtensionRegistry *ServiceRegistry::extensionRegistry() const { return m_extensionRegistry.get(); }
 OAuthService *ServiceRegistry::oauthService() const { return m_oauthService.get(); }
+TrayService *ServiceRegistry::trayService() const { return m_trayService.get(); }
 
 void ServiceRegistry::setWindowManager(std::unique_ptr<WindowManager> manager) {
   m_windowManager = std::move(manager);
@@ -81,6 +83,7 @@ void ServiceRegistry::setClipman(std::unique_ptr<ClipboardService> service) {
   m_clipman = std::move(service);
 }
 void ServiceRegistry::setAppDb(std::unique_ptr<AppService> service) { m_appDb = std::move(service); }
+void ServiceRegistry::setTrayService(std::unique_ptr<TrayService> service) { m_trayService = std::move(service); }
 
 ServiceRegistry *ServiceRegistry::instance() {
   static ServiceRegistry instance;

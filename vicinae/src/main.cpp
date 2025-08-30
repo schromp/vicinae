@@ -61,6 +61,7 @@
 #include "theme.hpp"
 #include "log/message-handler.hpp"
 #include "lib/pid-file/pid-file.hpp"
+#include "services/tray/tray.hpp"
 
 int startDaemon() {
   std::filesystem::create_directories(Omnicast::runtimeDir());
@@ -91,6 +92,7 @@ int startDaemon() {
     auto fileService = std::make_unique<FileService>();
     auto extensionRegistry = std::make_unique<ExtensionRegistry>(*localStorage);
     auto raycastStore = std::make_unique<RaycastStoreService>();
+    auto trayService = std::make_unique<TrayService>();
 
 #ifdef HAS_TYPESCRIPT_EXTENSIONS
     if (!extensionManager->start()) {
@@ -118,6 +120,7 @@ int startDaemon() {
     registry->setRaycastStore(std::move(raycastStore));
     registry->setExtensionRegistry(std::move(extensionRegistry));
     registry->setOAuthService(std::make_unique<OAuthService>());
+    registry->setTrayService(std::move(trayService));
 
     auto root = registry->rootItemManager();
     auto builtinCommandDb = std::make_unique<CommandDatabase>();

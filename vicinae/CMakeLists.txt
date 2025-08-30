@@ -169,6 +169,12 @@ set(SRCS
 	src/services/clipboard/clipboard-service.cpp
 	src/services/clipboard/gnome/gnome-clipboard-server.hpp
 	src/services/clipboard/gnome/gnome-clipboard-server.cpp
+  src/services/tray/tray.hpp
+  src/services/tray/tray.cpp
+  src/services/tray/statusNotifierWatcher.hpp
+  src/services/tray/statusNotifierWatcher.cpp
+  src/services/tray/statusNotifierHost.hpp
+  src/services/tray/statusNotifierHost.cpp
 
 	src/services/local-storage/local-storage-service.hpp
 	src/services/local-storage/local-storage.cpp
