@@ -6,5 +6,5 @@
 
 TrayService::TrayService() {
   m_watcher = new StatusNotifierWatcher(this);
-  // m_host = new StatusNotifierHost(this);
+  m_host = new StatusNotifierHost(this);
 }
