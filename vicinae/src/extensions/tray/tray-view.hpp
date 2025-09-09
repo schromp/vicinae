@@ -62,8 +62,8 @@ public:
 
     auto &section = m_list->addSection("Tray Items");
 
-    for (QString item : tray->m_host->registeredItems()) {
-      auto new_item = std::shared_ptr<TrayListItem>(new TrayListItem(item));
+    for (StatusNotifierItem item : tray->m_host->registeredItems()) {
+      auto new_item = std::shared_ptr<TrayListItem>(new TrayListItem(item.getTitle()));
       section.addItem(new_item);
     }
   }
@@ -73,7 +73,7 @@ public:
     qDebug() << "Initializing TrayView with host " << tray->m_host;
     for (auto item : tray->m_host->registeredItems()) {
       // we dont seem to ever get here so there probably are no registred items
-      qDebug() << "item " << item;
+      qDebug() << "item " << item.getTitle();
     }
 
     connect(tray->m_host, &StatusNotifierHost::trayItemRegistered, this, &TrayView::refreshTrayList);

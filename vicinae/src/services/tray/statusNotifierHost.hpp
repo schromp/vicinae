@@ -3,16 +3,17 @@
 #include <qdbusconnection.h>
 #include <qobject.h>
 #include <qtmetamacros.h>
+#include "statusNotifierItem.hpp"
 
 class StatusNotifierHost : public QObject {
   Q_OBJECT
 public:
   StatusNotifierHost(QObject *parent = nullptr);
 
-  QStringList registeredItems() const { return m_registeredItems; }
+  QList<StatusNotifierItem> registeredItems() const { return m_registeredItems; }
 
 private:
-  QStringList m_registeredItems;
+  QList<StatusNotifierItem> m_registeredItems;
   QDBusConnection m_bus;
 
   QStringList activeNotifierItems() const;

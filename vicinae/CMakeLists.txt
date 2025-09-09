@@ -175,6 +175,8 @@ set(SRCS
   src/services/tray/statusNotifierWatcher.cpp
   src/services/tray/statusNotifierHost.hpp
   src/services/tray/statusNotifierHost.cpp
+  src/services/tray/statusNotifierItem.hpp
+  src/services/tray/statusNotifierItem.cpp
 
 	src/services/local-storage/local-storage-service.hpp
 	src/services/local-storage/local-storage.cpp

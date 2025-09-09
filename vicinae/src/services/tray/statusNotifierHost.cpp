@@ -35,13 +35,18 @@ StatusNotifierHost::StatusNotifierHost(QObject *parent)
       iface.call("Get", "org.kde.StatusNotifierWatcher", "RegisteredStatusNotifierItems");
   if (reply.isValid()) {
     QStringList trayItems = reply.value().toStringList();
-    m_registeredItems = trayItems;
+
+    for (const QString &item : trayItems) {
+      qDebug() << "Found tray item from host:" << item;
+      StatusNotifierItem sni(item);
+      m_registeredItems.append(sni);
+    }
   } else {
     qWarning() << "Failed to get tray items:" << reply.error();
   }
 
-  for (const QString &item : m_registeredItems) {
-    qDebug() << "Found tray item:" << item;
+  for (const StatusNotifierItem &item : m_registeredItems) {
+    qDebug() << "Found tray item:" << item.getService();
   }
 }
 
